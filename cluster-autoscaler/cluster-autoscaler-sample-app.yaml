@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ca-demo-deployment
+  labels:
+    app: ca-apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ca-apache
+  template:
+    metadata:
+      labels:
+        app: ca-apache
+    spec:
+      containers:
+      - name: ca-apache
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "200m"       
+            memory: "200Mi"            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ca-demo-service-apache
+  labels:
+    app: ca-apache
+spec:
+  type: LoadBalancer
+  selector:
+    app: ca-apache
+  ports:
+  - port: 80
+    targetPort: 80
+    #nodePort: 31233
