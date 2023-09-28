@@ -27,7 +27,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       # SSL Redirect Setting
       "alb.ingress.kubernetes.io/ssl-redirect" = 443
       # External DNS - For creating a Record Set in Route53
-      "external-dns.alpha.kubernetes.io/hostname" = "fargate-app3.cmcloudlab1647.info"
+      "external-dns.alpha.kubernetes.io/hostname" = "fargate-app3.example.info"
       # Target Type: IP (Defaults to Instance if not specified)
       "alb.ingress.kubernetes.io/target-type" = "ip"
       

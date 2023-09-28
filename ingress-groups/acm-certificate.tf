@@ -1,6 +1,6 @@
 # Resource: ACM Certificate
 resource "aws_acm_certificate" "acm_cert" {
-  domain_name       = "*.sogeti.com"
+  domain_name       = "*.example.com"
   validation_method = "EMAIL"
 
   tags = {
